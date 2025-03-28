@@ -36,15 +36,31 @@ def login():
         if user and check_password_hash(user.password, password):
             session["user_id"] = user.id
             flash("Login realizado com sucesso!", "success")
-            return redirect(url_for("dashboard"))
+            return redirect(url_for("home"))
         else:
             flash("Email ou senha incorretos!", "danger")
 
     return render_template("auth/login.html")
 
-@app.route('/dashboard')
-def dashboard():
-    return "<h1>Bem-vindo ao Dashboard!</h1>"
+@app.route('/home')
+def home():
+    return render_template("home.html")
+
+@app.route('/sistemas')
+def sistemas():
+    return render_template('base.html')
+
+@app.route('/helpdesk')
+def helpdesk    ():
+    return render_template('base.html')
+
+@app.route('/contratos')
+def contratos():
+    return render_template('base.html')
+
+@app.route('/customers')
+def customers():
+    return render_template('base.html')
 
 # Inicialização do banco de dados
 def init_db():
