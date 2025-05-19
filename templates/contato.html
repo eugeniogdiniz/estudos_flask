@@ -1,14 +1,37 @@
-<div class="container mt-5">
-    <h2>Contato</h2>
-    <form method="POST">
-        <div class="mb-3">
-            <label class="form-label">Nome</label>
-            <input type="text" name="nome" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+{% extends 'base.html' %}
+
+{% block title %}Lista de Contratos{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Contratos</h2>
+    <table class="table table-bordered table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Número do Contrato</th>
+                <th>Cliente</th>
+                <th>Nome do Consórcio</th>
+                <th>Data de Assinatura</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contrato in contratos %}
+            <tr>
+                <td>{{ contrato.idContrato }}</td>
+                <td>{{ contrato.Numero_Contrato }}</td>
+                <td>{{ contrato.Cliente }}</td>
+                <td>{{ contrato.Nome_Consorcio }}</td>
+                <td>{{ contrato.Data_Assinatura.strftime('%d/%m/%Y') if contrato.Data_Assinatura else 'N/A' }}</td>
+                <td>
+                    <a href="{{ url_for('editar_contrato', idContrato=contrato.idContrato) }}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
+{% endblock %}
