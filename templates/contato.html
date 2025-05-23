@@ -2,6 +2,10 @@
 
 {% block title %}Lista de Contratos{% endblock %}
 
+{% block css_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contratos.css') }}">
+{% endblock %}
+
 {% block conteudo %}
 <div class="mt-4">
     <h2>Contratos</h2>

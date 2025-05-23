@@ -1,0 +1,71 @@
+/* Espaçamento superior para containers */
+.mt-4 {
+    margin-top: 1.5rem; /* 24px, um espaçamento confortável */
+}
+
+/* Estilo base para inputs e selects */
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem; /* 8px vertical e 12px horizontal */
+    margin-top: 0.25rem;     /* pequeno espaçamento entre label e campo */
+    margin-bottom: 1rem;     /* espaçamento para próximo elemento */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Foco nos campos */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #007bff; /* azul suave */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* Botão salvar */
+.btn-salvar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+/* Efeito hover botão */
+.btn-salvar:hover {
+    background-color: #0056b3;
+}
+
+/* Link de voltar */
+.link-voltar {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Hover link */
+.link-voltar:hover {
+    text-decoration: underline;
+}

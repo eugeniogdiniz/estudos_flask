@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Padding exemplo prático com menu lateral</title>
-    <link rel="stylesheet" href="static\css\style_menupadding.css">
+    <title>{% block title %}Padding exemplo prático com menu lateral{% endblock %}</title>
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_menupadding.css') }}">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    {% block css_extra %}{% endblock %}
 </head>
 <body>
     <div class="container">
@@ -26,29 +32,30 @@
             <a href="{{ url_for('contratos') }}" class="menu-link">
                 <div class="itens-menu">
                     <div class="itens">
-                        <i class="fa-solid fa-house-laptop"></i>
+                        <i class="fa-solid fa-file-contract"></i>
                         <p>Contratos</p>
                     </div>
                 </div>
             </a>
-                <div class="itens-menu">
-                    <div class="itens">
-                        <i class="fa-solid fa-house-laptop"></i>
-                        <p>Customers</p>
-                    </div>
+            <div class="itens-menu">
+                <div class="itens">
+                    <i class="fa-solid fa-users"></i>
+                    <p>Customers</p>
                 </div>
-                <div class="itens-menu">
-                    <div class="itens">
-                        <i class="fa-solid fa-house-laptop"></i>
-                        <p>CRONOGRAMA</p>
-                    </div>
+            </div>
+            <div class="itens-menu">
+                <div class="itens">
+                    <i class="fa-solid fa-calendar-alt"></i>
+                    <p>Cronograma</p>
                 </div>
+            </div>
         </div>
+
         <div class="conteudo">
             {% block conteudo %}{% endblock %}
         </div>
-    
     </div>
+
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 </body>
 </html>
-<script src="{{ url_for('static', filename='static\js\menu.js') }}"></script>

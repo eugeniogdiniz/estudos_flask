@@ -1,0 +1,41 @@
+{% extends 'index_padding.html' %}
+
+{% block title %}Editar Contrato{% endblock %}
+
+{% block css_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/edicaocontrato.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="mt-4">
+    <h2>Editar Contrato</h2>
+    <form method="POST" action="{{ url_for('editar_contrato', idContrato=contrato['idContrato']) }}">
+        <div class="mb-3">
+            <label for="numero_contrato" class="form-label">Número do Contrato</label>
+            <input type="text" class="form-control" id="numero_contrato" name="numero_contrato"
+                   value="{{ contrato['Numero_Contrato'] }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="cliente" class="form-label">Cliente</label>
+            <input type="text" class="form-control" id="cliente" name="cliente"
+                   value="{{ contrato['Cliente'] }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="nome_consorcio" class="form-label">Nome do Consórcio</label>
+            <input type="text" class="form-control" id="nome_consorcio" name="nome_consorcio"
+                   value="{{ contrato['Nome_Consorcio'] }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="data_assinatura" class="form-label">Data de Assinatura</label>
+            <input type="date" class="form-control" id="data_assinatura" name="data_assinatura"
+                   value="{% if contrato['Data_Assinatura'] %}{{ contrato['Data_Assinatura'].strftime('%Y-%m-%d') }}{% endif %}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{{ url_for('contratos') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
