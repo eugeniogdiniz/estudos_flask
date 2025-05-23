@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padding exemplo prático com menu lateral</title>
+    <link rel="stylesheet" href="static\css\style_menupadding.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon/logo-bonin-light.png') }}" alt="Logo Bonin">
+            </div>
+            <a href="{{ url_for('index') }}" class="menu-link">
+                <div class="itens-menu">
+                    <div class="itens">
+                        <i class="fa-solid fa-house-laptop"></i>
+                        <p>Home</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ url_for('contratos') }}" class="menu-link">
+                <div class="itens-menu">
+                    <div class="itens">
+                        <i class="fa-solid fa-house-laptop"></i>
+                        <p>Contratos</p>
+                    </div>
+                </div>
+            </a>
+                <div class="itens-menu">
+                    <div class="itens">
+                        <i class="fa-solid fa-house-laptop"></i>
+                        <p>Customers</p>
+                    </div>
+                </div>
+                <div class="itens-menu">
+                    <div class="itens">
+                        <i class="fa-solid fa-house-laptop"></i>
+                        <p>CRONOGRAMA</p>
+                    </div>
+                </div>
+        </div>
+        <div class="conteudo">
+            {% block conteudo %}{% endblock %}
+        </div>
+    
+    </div>
+</body>
+</html>
+<script src="{{ url_for('static', filename='static\js\menu.js') }}"></script>
